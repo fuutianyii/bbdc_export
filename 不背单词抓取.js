@@ -56,7 +56,7 @@ function mainFunction() {
         option = [];
         id("normal_container").find().forEach(function(tv) {
             option_item_num = 0
-            const option_item = [];
+            option_item = [];
             tv.children().forEach(function(tv) {
                 option_item[option_item_num++] = tv.text()
                 console.log(tv.text);
@@ -160,7 +160,7 @@ function mainFunction() {
             }
             console.log('获取句子');
             var 句子容器 = id("word_main_sentence_container").findOnce();
-            if (句子容器 != null) {
+            if (Word.en_sentence = 句子容器.child(0).child(0) != null) {
                 Word.en_sentence = 句子容器.child(0).child(0).text();
                 Word.ch_sentence = 句子容器.child(0).child(1).text();
             } else {
@@ -172,7 +172,6 @@ function mainFunction() {
             派生词汇_num = 0;
 
             if (className("android.widget.TextView").text("派生").clickable(true).depth(23).exists()) {
-                className("android.widget.TextView").text("派生").clickable(true).depth(23).click()
                 id("tv_derivative_content").find().forEach(function(tv) {
                     if (tv.text() != "") {
                         派生词汇[派生词汇_num++] = tv.text();
@@ -192,7 +191,7 @@ function mainFunction() {
                 "prononce": Word.prononce,
                 "sentence_en": Word.en_sentence,
                 "sentence_ch": Word.ch_sentence,
-                "derivative": JSON.stringify(派生词汇), //派生词汇,
+                "derivative": JSON.stringify(派生词汇),
                 "type": wordType,
                 "undefined": undefined
             };
@@ -202,8 +201,9 @@ function mainFunction() {
                 //toastLog("next");
                 id("bt_nextWord").findOne().click()
             }
-            if (id("right_button").exists()) {
-                id("right_button").findOne().click()
+            sleep(1000);
+            if (id("left_button").exists()) {
+                id("left_button").findOne().click()
                 toastLog("下一课");
             }
         };
